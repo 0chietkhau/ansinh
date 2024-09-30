@@ -18,6 +18,9 @@ export default function Root({ children }: PropsWithChildren) {
           However, body scrolling is often nice to have for mobile web. If you want to enable it, remove this line.
         */}
         <ScrollViewStyleReset />
+        {
+          <style dangerouslySetInnerHTML={{ __html: customStyle }} />
+        }
 
         {/* Using raw CSS styles as an escape-hatch to ensure the background color never flickers in dark-mode. */}
         <style dangerouslySetInnerHTML={{ __html: responsiveBackground }} />
@@ -37,3 +40,11 @@ body {
     background-color: #000;
   }
 }`;
+const customStyle = `
+#root {
+  max-width: 600px;
+  margin: 0 auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+`;
